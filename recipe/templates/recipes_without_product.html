@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Рецепты без продукта
+{% endblock %}
+
+{% block content %}
+    <h1>Рецепты без продукта {{ product.name }}</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Название рецепта</th>
+        </tr>
+        {% for recipe in recipes_without_product %}
+        <tr>
+            <td>{{ recipe.id }}</td>
+            <td>{{ recipe.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Рецепты с количеством продукта менее 10 грамм</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Название рецепта</th>
+        </tr>
+        {% for recipe in recipes_with_small_amount %}
+        <tr>
+            <td>{{ recipe.id }}</td>
+            <td>{{ recipe.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
